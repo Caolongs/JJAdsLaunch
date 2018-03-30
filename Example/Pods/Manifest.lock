@@ -1,0 +1,16 @@
+PODS:
+  - JJAdsLaunch (0.1.0)
+
+DEPENDENCIES:
+  - JJAdsLaunch (from `../`)
+
+EXTERNAL SOURCES:
+  JJAdsLaunch:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JJAdsLaunch: 48646779ba9b21f9048ebc4bdbfc0ed443838972
+
+PODFILE CHECKSUM: 87651abe52ccb1d249c97c3bea4e18d948bf0e5a
+
+COCOAPODS: 1.4.0

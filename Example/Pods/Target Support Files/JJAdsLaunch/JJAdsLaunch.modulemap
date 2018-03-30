@@ -1,0 +1,6 @@
+framework module JJAdsLaunch {
+  umbrella header "JJAdsLaunch-umbrella.h"
+
+  export *
+  module * { export * }
+}

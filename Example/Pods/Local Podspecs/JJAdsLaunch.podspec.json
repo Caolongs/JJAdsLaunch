@@ -1,0 +1,22 @@
+{
+  "name": "JJAdsLaunch",
+  "version": "0.1.0",
+  "summary": "A short description of JJAdsLaunch.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Caolongs@126.com/JJAdsLaunch",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Caolongs@126.com": "caolongs@126.com"
+  },
+  "source": {
+    "git": "https://github.com/Caolongs@126.com/JJAdsLaunch.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JJAdsLaunch/Classes/**/*"
+}
