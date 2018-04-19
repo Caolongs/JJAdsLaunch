@@ -1,9 +1,9 @@
 use_frameworks!
 
 target 'JJAdsLaunch_Example' do
-#  pod 'JJAdsLaunch', :path => '../'
+  pod 'JJAdsLaunch', :path => '../'
 
-  pod 'JJAdsLaunch'
+#  pod 'JJAdsLaunch'
 
   target 'JJAdsLaunch_Tests' do
     inherit! :search_paths
