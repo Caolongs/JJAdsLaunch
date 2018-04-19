@@ -76,7 +76,7 @@ public class JJAdsLaunch: NSObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(duration)) {
         
             UIView.animate(withDuration: 0.6, animations: {
-                self.defaultView.alpha = 0.5
+                self.defaultView.alpha = 1.0
                 self.defaultView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             }) { (complete) in
                 self.view.removeFromSuperview()
