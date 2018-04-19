@@ -25,6 +25,12 @@ public class JJAdsLaunch: NSObject {
         launchAd.disBlock = dissBlock
         configAds(launchAd)
     
+        // 加载图片过长，直接不加载 （待优化）
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(launchAd.duration)) {
+            if let _ = launchAd.adImageView.image {
+                launchAd.diss()
+            }
+        }
     }
     
     override init() {
