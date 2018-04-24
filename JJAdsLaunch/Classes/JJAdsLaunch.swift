@@ -69,7 +69,6 @@ public class JJAdsLaunch: NSObject {
         adImageView.image = image
         saveCacheImage(image: image)
         diss()
-        UIApplication.shared.isStatusBarHidden = false
     }
     
     public func diss() {
@@ -83,6 +82,7 @@ public class JJAdsLaunch: NSObject {
                 self.view.removeFromSuperview()
                 self.defaultView.removeFromSuperview()
                 self.disBlock?()
+                UIApplication.shared.isStatusBarHidden = false
             }
         }
     }
