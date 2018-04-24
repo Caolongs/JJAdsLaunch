@@ -21,7 +21,8 @@ public class JJAdsLaunch: NSObject {
     private var disBlock: (() -> ())?
     
     public class func showWithAdFrame(frame: CGRect, configAds: (_ launch: JJAdsLaunch) -> (), dissBlock: (() -> ())? = nil) {
-        
+        //Info.plist 文件中添加 View controller-based status bar appearance 设置为 NO
+        UIApplication.shared.isStatusBarHidden = true
         let launchAd = JJAdsLaunch()
         launchAd.view.frame = frame
         launchAd.disBlock = dissBlock
@@ -68,7 +69,7 @@ public class JJAdsLaunch: NSObject {
         adImageView.image = image
         saveCacheImage(image: image)
         diss()
-        
+        UIApplication.shared.isStatusBarHidden = false
     }
     
     public func diss() {
