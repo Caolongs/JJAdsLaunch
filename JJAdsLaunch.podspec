@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JJAdsLaunch'
-  s.version          = '0.2.5'
+  s.version          = '0.2.6'
   s.summary          = 'JJAdsLaunch.'
   s.swift_version    = '4.0'
 

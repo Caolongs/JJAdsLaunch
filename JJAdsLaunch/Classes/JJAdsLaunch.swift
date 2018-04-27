@@ -55,7 +55,7 @@ public class JJAdsLaunch: NSObject {
     
     //网络请求加载图片、视频动画或者其他自定义的引导页
     public func addImage(image: UIImage) {
-        isNetRequestImgOk = false
+        isNetRequestImgOk = true
         adImageView.frame = view.bounds
         adImageView.contentMode = .scaleAspectFill
         if adImageView.superview == nil {
