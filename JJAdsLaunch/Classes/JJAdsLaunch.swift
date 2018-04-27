@@ -17,8 +17,8 @@ public class JJAdsLaunch: NSObject {
     
     private var defaultView: UIView!
     private let adImageView = UIImageView()
-    
     private var disBlock: (() -> ())?
+    private var isNetRequestImgOk: Bool = false
     
     public class func showWithAdFrame(frame: CGRect, configAds: (_ launch: JJAdsLaunch) -> (), dissBlock: (() -> ())? = nil) {
         //Info.plist 文件中添加 View controller-based status bar appearance 设置为 NO
@@ -31,7 +31,7 @@ public class JJAdsLaunch: NSObject {
     
         // 网络请求过长，直接不加载
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(launchAd.duration)) {
-            if let _ = launchAd.adImageView.image {
+            if !launchAd.isNetRequestImgOk {
                 launchAd.diss()
             }
         }
@@ -39,11 +39,8 @@ public class JJAdsLaunch: NSObject {
     
     override init() {
         super.init()
-        
         let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-        
         let startViewController = storyboard.instantiateInitialViewController()
-        
         if let startView = startViewController?.view {
             defaultView = startView
         } else {
@@ -51,16 +48,14 @@ public class JJAdsLaunch: NSObject {
         }
 
         UIApplication.shared.keyWindow?.addSubview(defaultView)
-        
         defaultView.addSubview(view)
         view.backgroundColor = .clear
-        
         UIApplication.shared.keyWindow?.bringSubview(toFront: view)
-        
     }
     
     //网络请求加载图片、视频动画或者其他自定义的引导页
     public func addImage(image: UIImage) {
+        isNetRequestImgOk = false
         adImageView.frame = view.bounds
         adImageView.contentMode = .scaleAspectFill
         if adImageView.superview == nil {
@@ -72,9 +67,7 @@ public class JJAdsLaunch: NSObject {
     }
     
     public func diss() {
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(duration)) {
-        
             UIView.animate(withDuration: 0.6, animations: {
                 self.defaultView.alpha = 1.0
                 self.defaultView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
@@ -86,7 +79,6 @@ public class JJAdsLaunch: NSObject {
             }
         }
     }
-    
     
     //从缓存加载图片
     public func setCacheImage() {
@@ -114,8 +106,6 @@ public class JJAdsLaunch: NSObject {
     }
  
 }
-
-
 
 // MARK: - 本地缓存文件操作
 extension JJAdsLaunch {
